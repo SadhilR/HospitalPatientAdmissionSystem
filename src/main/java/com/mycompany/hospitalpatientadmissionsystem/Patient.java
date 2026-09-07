@@ -1,5 +1,6 @@
 package com.mycompany.hospitalpatientadmissionsystem;
 
+// Stores the basic information for a patient
 public class Patient {
 
     private String patientId;
@@ -10,6 +11,7 @@ public class Patient {
     private String medicalCondition;
     private PatientCategory patientCategory;
 
+    // Creates a patient with all their personal and medical details
     public Patient(
             String patientId,
             String firstName,
@@ -86,6 +88,7 @@ public class Patient {
         this.patientCategory = patientCategory;
     }
 
+    // Displays all the patient's details
     public void displayDetails() {
         System.out.println(
                 "Patient ID: " + patientId
