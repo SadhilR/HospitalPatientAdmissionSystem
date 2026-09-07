@@ -1,3 +1,33 @@
+// Code Attributions: HospitalSystem
+
+// Code attribution:
+// Title: List Implementations
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/collections/implementations/list.html
+
+// Code attribution:
+// Title: Arrays
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html
+
+// Code attribution:
+// Title: Inheritance
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+
+// Code attribution:
+// Title: Comparing Strings and Portions of Strings
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/data/comparestrings.html
+
 package com.mycompany.hospitalpatientadmissionsystem;
 
 import java.util.ArrayList;

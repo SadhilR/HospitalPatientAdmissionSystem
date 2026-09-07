@@ -1,3 +1,33 @@
+// Code Attributions: HospitalPatientAdmissionSystem
+
+// Code attribution:
+// Title: Scanner Class
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Scanner.html
+
+// Code attribution:
+// Title: The switch Statement
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html
+
+// Code attribution:
+// Title: The if-then and if-then-else Statements
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
+
+// Code attribution:
+// Title: Catching and Handling Exceptions
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/essential/exceptions/handling.html
+
 package com.mycompany.hospitalpatientadmissionsystem;
 
 import java.util.Scanner;

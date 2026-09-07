@@ -1,3 +1,33 @@
+// Code Attributions: Patient
+
+// Code attribution:
+// Title: Declaring Member Variables
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html
+
+// Code attribution:
+// Title: Providing Constructors for Your Classes
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html
+
+// Code attribution:
+// Title: Controlling Access to Members of a Class
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+
+// Code attribution:
+// Title: Defining Methods
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
+
 package com.mycompany.hospitalpatientadmissionsystem;
 
 // Stores the basic information for a patient

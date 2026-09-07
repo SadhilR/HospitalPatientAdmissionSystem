@@ -1,3 +1,28 @@
+// Code Attributions: HospitalSystemTest
+// Code attribution:
+// Title: JUnit 5 User Guide
+// Author: JUnit
+// Date: 7 September 2026
+// Version: 5.11.4
+// Availability: https://junit.org/junit5/docs/5.11.4/user-guide/
+// Code attribution:
+// Title: Test Annotation
+// Author: JUnit
+// Date: 7 September 2026
+// Version: 5.11.4
+// Availability: https://junit.org/junit5/docs/5.11.4/api/org.junit.jupiter.api/org/junit/jupiter/api/Test.html
+// Code attribution:
+// Title: Assertions
+// Author: JUnit
+// Date: 7 September 2026
+// Version: 5.11.4
+// Availability: https://junit.org/junit5/docs/5.11.4/api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html
+// Code attribution:
+// Title: Writing Tests
+// Author: JUnit
+// Date: 7 September 2026
+// Version: 5.11.4
+// Availability: https://junit.org/junit5/docs/5.11.4/user-guide/#writing-tests
 package com.mycompany.hospitalpatientadmissionsystem;
 
 import java.util.ArrayList;
@@ -196,6 +221,142 @@ public class HospitalSystemTest {
         assertFalse(allocated);
         assertEquals(
                 20,
+                hospitalSystem.getTotalOccupiedBeds()
+        );
+    }
+
+    // Tests if a bed can be released from an inpatient
+    @Test
+    public void testReleaseBed() {
+
+        HospitalSystem hospitalSystem = new HospitalSystem();
+
+        Inpatient inpatient = new Inpatient(
+                "P005",
+                "James",
+                "Wilson",
+                45,
+                "Male",
+                "Surgery",
+                PatientCategory.INPATIENT,
+                "Ward 1",
+                "Not Allocated"
+        );
+
+        hospitalSystem.registerPatient(inpatient);
+        hospitalSystem.allocateBed("P005", "B01");
+
+        boolean released
+                = hospitalSystem.releaseBed("P005");
+
+        assertTrue(released);
+        assertEquals(
+                "Not Allocated",
+                inpatient.getBedNumber()
+        );
+        assertEquals(
+                0,
+                hospitalSystem.getTotalOccupiedBeds()
+        );
+    }
+
+    // Tests that two patients cannot have the same Patient ID
+    @Test
+    public void testDuplicatePatientId() {
+
+        HospitalSystem hospitalSystem = new HospitalSystem();
+
+        Patient patientOne = new Patient(
+                "P006",
+                "John",
+                "Smith",
+                35,
+                "Male",
+                "Flu",
+                PatientCategory.OUTPATIENT
+        );
+
+        Patient patientTwo = new Patient(
+                "P006",
+                "Sarah",
+                "Adams",
+                28,
+                "Female",
+                "Migraine",
+                PatientCategory.OUTPATIENT
+        );
+
+        boolean firstAdded
+                = hospitalSystem.registerPatient(patientOne);
+
+        boolean secondAdded
+                = hospitalSystem.registerPatient(patientTwo);
+
+        assertTrue(firstAdded);
+        assertFalse(secondAdded);
+        assertEquals(
+                1,
+                hospitalSystem.getTotalPatients()
+        );
+    }
+
+    // Tests that an occupied bed cannot be allocated to another patient
+    @Test
+    public void testOccupiedBedCannotBeAllocated() {
+
+        HospitalSystem hospitalSystem = new HospitalSystem();
+
+        Inpatient firstPatient = new Inpatient(
+                "P007",
+                "David",
+                "Jones",
+                50,
+                "Male",
+                "Surgery",
+                PatientCategory.INPATIENT,
+                "Ward 1",
+                "Not Allocated"
+        );
+
+        Inpatient secondPatient = new Inpatient(
+                "P008",
+                "Lisa",
+                "Green",
+                38,
+                "Female",
+                "Observation",
+                PatientCategory.INPATIENT,
+                "Ward 1",
+                "Not Allocated"
+        );
+
+        hospitalSystem.registerPatient(firstPatient);
+        hospitalSystem.registerPatient(secondPatient);
+
+        boolean firstAllocated
+                = hospitalSystem.allocateBed(
+                        "P007",
+                        "B01"
+                );
+
+        boolean secondAllocated
+                = hospitalSystem.allocateBed(
+                        "P008",
+                        "B01"
+                );
+
+        assertTrue(firstAllocated);
+        assertFalse(secondAllocated);
+        assertEquals(
+                "B01",
+                firstPatient.getBedNumber()
+        );
+        assertEquals(
+                "Not Allocated",
+                secondPatient.getBedNumber()
+        );
+        assertEquals(
+                1,
                 hospitalSystem.getTotalOccupiedBeds()
         );
     }

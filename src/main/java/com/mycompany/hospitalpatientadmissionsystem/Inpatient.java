@@ -1,3 +1,33 @@
+// Code Attributions: Inpatient
+
+// Code attribution:
+// Title: Inheritance
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+
+// Code attribution:
+// Title: Using the Keyword super
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/IandI/super.html
+
+// Code attribution:
+// Title: Overriding and Hiding Methods
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/IandI/override.html
+
+// Code attribution:
+// Title: Providing Constructors for Your Classes
+// Author: Oracle
+// Date: 7 September 2026
+// Version: 1
+// Availability: https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html
+
 package com.mycompany.hospitalpatientadmissionsystem;
 
 // Represents an inpatient who can be assigned to a ward and bed
