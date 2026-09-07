@@ -2,15 +2,19 @@ package com.mycompany.hospitalpatientadmissionsystem;
 
 import java.util.Scanner;
 
+// Main class for running the hospital patient admission system
 public class HospitalPatientAdmissionSystem {
 
+    // Starts the program and displays the menu to the user
     public static void main(String[] args) {
 
+        // Scanner is used to get input from the user
         Scanner scanner = new Scanner(System.in);
         HospitalSystem hospitalSystem = new HospitalSystem();
 
         int choice;
 
+        // Keeps displaying the menu until the user chooses to exit
         do {
             System.out.println("\n===== HOSPITAL PATIENT ADMISSION SYSTEM =====");
             System.out.println("1. Register Patient");
@@ -33,8 +37,10 @@ public class HospitalPatientAdmissionSystem {
                     "Enter your choice: "
             );
 
+            // Runs the option selected by the user
             switch (choice) {
 
+                // Register a new patient
                 case 1: {
                     System.out.println(
                             "\n===== REGISTER PATIENT ====="
@@ -168,6 +174,7 @@ public class HospitalPatientAdmissionSystem {
                     break;
                 }
 
+                // Search for a patient using their ID
                 case 2: {
                     System.out.println(
                             "\n===== SEARCH PATIENT ====="
@@ -195,6 +202,7 @@ public class HospitalPatientAdmissionSystem {
                     break;
                 }
 
+                // Update an existing patient's details
                 case 3: {
                     System.out.println(
                             "\n===== UPDATE PATIENT ====="
@@ -285,6 +293,7 @@ public class HospitalPatientAdmissionSystem {
                     break;
                 }
 
+                // Delete a patient from the system
                 case 4: {
                     System.out.println(
                             "\n===== DELETE PATIENT ====="
@@ -312,6 +321,7 @@ public class HospitalPatientAdmissionSystem {
                     break;
                 }
 
+                // Allocate a bed to an inpatient
                 case 5: {
                     System.out.println(
                             "\n===== ALLOCATE BED ====="
@@ -350,6 +360,7 @@ public class HospitalPatientAdmissionSystem {
                     break;
                 }
 
+                // Release a bed from an inpatient
                 case 6: {
                     System.out.println(
                             "\n===== RELEASE BED ====="
@@ -439,6 +450,7 @@ public class HospitalPatientAdmissionSystem {
         scanner.close();
     }
 
+    // Makes sure the user enters a valid whole number
     private static int readInteger(
             Scanner scanner,
             String prompt) {
@@ -453,6 +465,7 @@ public class HospitalPatientAdmissionSystem {
 
             } catch (NumberFormatException e) {
 
+                // Displays an error if the user enters something that is not a number
                 System.out.println(
                         "Invalid input. "
                         + "Please enter a whole number."
