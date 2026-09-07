@@ -1,10 +1,12 @@
 package com.mycompany.hospitalpatientadmissionsystem;
 
+// Represents an inpatient who can be assigned to a ward and bed
 public class Inpatient extends Patient {
 
     private String wardNumber;
     private String bedNumber;
 
+    // Creates an inpatient with their patient, ward and bed details
     public Inpatient(
             String patientId,
             String firstName,
@@ -46,6 +48,7 @@ public class Inpatient extends Patient {
         this.bedNumber = bedNumber;
     }
 
+    // Displays the patient details together with their ward and bed
     @Override
     public void displayDetails() {
         super.displayDetails();
