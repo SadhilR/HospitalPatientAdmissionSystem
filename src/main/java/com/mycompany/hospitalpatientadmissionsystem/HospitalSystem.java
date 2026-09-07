@@ -2,12 +2,17 @@ package com.mycompany.hospitalpatientadmissionsystem;
 
 import java.util.ArrayList;
 
+// Handles patient records, bed management and hospital reports
 public class HospitalSystem {
 
+    // Stores all patients registered in the system
     private ArrayList<Patient> patients;
+    
+    // 2D arrays used for the 20 hospital beds and their occupants
     private String[][] beds;
     private String[][] bedOccupants;
 
+    // Creates the patient list and sets up the 4 x 5 ward layout
     public HospitalSystem() {
         patients = new ArrayList<>();
         beds = new String[4][5];
@@ -16,6 +21,7 @@ public class HospitalSystem {
         initialiseBeds();
     }
 
+    // Gives each bed a number from B01 to B20
     private void initialiseBeds() {
         int bedNumber = 1;
 
@@ -27,6 +33,7 @@ public class HospitalSystem {
         }
     }
 
+    // Adds a patient if their Patient ID is not already registered
     public boolean registerPatient(Patient patient) {
 
         if (patient == null) {
@@ -46,6 +53,7 @@ public class HospitalSystem {
         return true;
     }
 
+    // Searches for a patient using their Patient ID
     public Patient searchPatient(String patientId) {
 
         if (patientId == null || patientId.trim().isEmpty()) {
@@ -61,6 +69,7 @@ public class HospitalSystem {
         return null;
     }
 
+    // Updates the details of an existing patient
     public boolean updatePatient(
             String patientId,
             String firstName,
@@ -96,6 +105,7 @@ public class HospitalSystem {
         return true;
     }
 
+    // Deletes a patient and releases their bed if they have one
     public boolean deletePatient(String patientId) {
 
         Patient patient = searchPatient(patientId);
@@ -119,6 +129,7 @@ public class HospitalSystem {
         return true;
     }
 
+    // Displays the details of every registered patient
     public void displayAllPatients() {
 
         if (patients.isEmpty()) {
@@ -140,6 +151,7 @@ public class HospitalSystem {
         }
     }
 
+    // Allocates an available bed to an inpatient
     public boolean allocateBed(
             String patientId,
             String bedNumber) {
@@ -150,6 +162,7 @@ public class HospitalSystem {
             return false;
         }
 
+        // Only inpatients are allowed to receive a bed
         if (!(patient instanceof Inpatient)) {
             return false;
         }
@@ -167,6 +180,7 @@ public class HospitalSystem {
             return false;
         }
 
+        // Searches the ward for the bed entered by the user
         for (int row = 0; row < beds.length; row++) {
             for (int column = 0;
                     column < beds[row].length;
@@ -192,6 +206,7 @@ public class HospitalSystem {
         return false;
     }
 
+    // Releases the bed currently assigned to an inpatient
     public boolean releaseBed(String patientId) {
 
         Patient patient = searchPatient(patientId);
@@ -237,6 +252,7 @@ public class HospitalSystem {
         return false;
     }
 
+    // Shows all 20 beds and whether each one is available or occupied
     public void displayWardLayout() {
 
         System.out.println(
@@ -266,6 +282,7 @@ public class HospitalSystem {
         }
     }
 
+    // Displays all beds that are currently available
     public void displayAvailableBeds() {
 
         System.out.println(
@@ -296,6 +313,7 @@ public class HospitalSystem {
         }
     }
 
+    // Displays occupied beds together with the patient's ID
     public void displayOccupiedBeds() {
 
         System.out.println(
@@ -330,10 +348,12 @@ public class HospitalSystem {
         }
     }
 
+    // Returns the total number of registered patients
     public int getTotalPatients() {
         return patients.size();
     }
 
+    // Counts how many beds are currently occupied
     public int getTotalOccupiedBeds() {
 
         int occupiedBeds = 0;
@@ -355,6 +375,7 @@ public class HospitalSystem {
         return occupiedBeds;
     }
 
+    // Calculates the percentage of beds currently occupied
     public double getOccupancyPercentage() {
 
         int occupiedBeds = getTotalOccupiedBeds();
@@ -363,6 +384,7 @@ public class HospitalSystem {
         return ((double) occupiedBeds / totalBeds) * 100;
     }
 
+    // Uses Bubble Sort to arrange patients alphabetically by surname
     public ArrayList<Patient> sortPatientsBySurname() {
 
         ArrayList<Patient> sortedPatients
@@ -401,6 +423,7 @@ public class HospitalSystem {
         return sortedPatients;
     }
 
+    // Uses Bubble Sort to arrange patients by Patient ID
     public ArrayList<Patient> sortPatientsByPatientId() {
 
         ArrayList<Patient> sortedPatients
@@ -420,6 +443,7 @@ public class HospitalSystem {
                                 sortedPatients.get(j + 1)
                                         .getPatientId()) > 0) {
 
+                    // Swaps the patients if they are in the wrong order
                     Patient temp
                             = sortedPatients.get(j);
 
@@ -439,6 +463,7 @@ public class HospitalSystem {
         return sortedPatients;
     }
 
+    // Displays patients after sorting them by surname
     public void displayPatientsSortedBySurname() {
 
         ArrayList<Patient> sortedPatients
@@ -463,6 +488,7 @@ public class HospitalSystem {
         }
     }
 
+    // Displays patients after sorting them by Patient ID
     public void displayPatientsSortedByPatientId() {
 
         ArrayList<Patient> sortedPatients
@@ -487,6 +513,7 @@ public class HospitalSystem {
         }
     }
 
+    // Displays a summary of the patients and current ward usage
     public void displayWardReport() {
 
         System.out.println(
