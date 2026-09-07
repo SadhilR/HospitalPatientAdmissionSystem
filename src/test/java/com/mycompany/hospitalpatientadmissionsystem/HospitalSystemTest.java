@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests the main functions of the hospital system
 public class HospitalSystemTest {
 
+    // Tests if a patient can be added and searched for
     @Test
     public void testAddAndSearchPatient() {
 
@@ -32,6 +34,7 @@ public class HospitalSystemTest {
         assertEquals("Smith", foundPatient.getLastName());
     }
 
+    // Tests if a patient's details can be updated
     @Test
     public void testUpdatePatient() {
 
@@ -70,6 +73,7 @@ public class HospitalSystemTest {
         );
     }
 
+    // Tests if a patient can be deleted from the system
     @Test
     public void testDeletePatient() {
 
@@ -98,6 +102,7 @@ public class HospitalSystemTest {
         assertEquals(0, hospitalSystem.getTotalPatients());
     }
 
+    // Tests if a bed can be allocated when one is available
     @Test
     public void testBedAllocationWhenAvailable() {
 
@@ -131,6 +136,7 @@ public class HospitalSystemTest {
         );
     }
 
+    // Tests that another bed cannot be allocated when the ward is full
     @Test
     public void testBedAllocationWhenWardIsFull() {
 
@@ -194,6 +200,7 @@ public class HospitalSystemTest {
         );
     }
 
+    // Tests if patients are sorted correctly by surname
     @Test
     public void testSortPatientsBySurname() {
 
@@ -254,6 +261,7 @@ public class HospitalSystemTest {
         );
     }
 
+    // Tests if patients are sorted correctly by Patient ID
     @Test
     public void testSortPatientsByPatientId() {
 
